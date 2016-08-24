@@ -1,6 +1,6 @@
 {
   "name": "stick.form2",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
@@ -26,5 +26,12 @@
   "dependencies": {
     "views.form": "git+https://github.com/kildevaeld/views.form.git"
   },
-  "typings": "lib/index"
+  "typings": "lib/index",
+  "jspm": {
+    "format": "cjs",
+    "registry": "github",
+    "dependencies": {
+      "views.form": "github:kildevaeld/views.form@master"
+    }
+  }
 }

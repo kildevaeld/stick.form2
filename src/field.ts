@@ -4,7 +4,7 @@ import {Base} from './base';
 import {TemplateView, decorators} from 'stick';
 import {Form} from './form';
 import * as vform from 'views.form';
-import {omit, addClass} from 'orange';
+import {omit, addClass} from 'orange/browser';
 
 @decorators.component('field')
 export abstract class Field extends Base {
