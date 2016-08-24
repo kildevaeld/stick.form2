@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="../node_modules/babel-polyfill/dist/polyfill.js"></script>
+        <script src="../node_modules/stick/build/stick.js"></script>
+        <script src="../node_modules/orange/dist/orange.min.js"></script>
+        <script src="../node_modules/views/dist/views.js"></script>
+        
+        <script src="../dist/stick.form.js"></script>
+        <script type="text/html" id="main">
+            <div>
+                <form name="form">
+                <field class="field">
+                    <label calss="field-label">Name</label>
+                    <input type="text" name="name" value="{{<~>form.name}}" error="Du skal udfylde navn" required validate-min="10"  />
+                </field>
+                <field class="field">
+                    <label class="field-label">Age</label>
+                    <input type="number" name="age" value="{{<~>form.age}}" validate-min="10" />
+                </field>
+                <field class="field">
+                    <label>Test</label>
+                    <input  name="bjorn" value="{{<~>form.new_name}}" validate-match="name" required  />
+                </field>
+                <field class="field">
+                    <label>Url</label>
+                    <input  name="url" value="{{<~>form.url}}" validate-url required  />
+                </field>
+                <field class="field">
+                    <textarea style="resize:vertical;" name="text" autosize></textarea>
+                </field>
+                
+            </form>
+            </div>
+            <button onclick="{{onSubmit}}">{{name}}</button>
+            <button onclick="{{onDestroy}}">Destroy</button>
+            
+        </script>
+        <script>
+            'use strict';
+            
+            let app = stick.module('app', ['$state', function ($state) {
+                $state.set('name', 'Peter');
+                
+                this.onSubmit = function () {
+                    var valid  = $state.get('$ui.form').validate()
+                    
+                    console.log($state.get('$ui.form').form.model.toJSON())
+                }
+
+                this.onDestroy = function () {
+                    app = app.container.get('template').then( function (a) {
+                        console.log(a)
+                        a.$destroy();
+                    })
+                    console.log(app)
+                }
+                
+            }]);
+            
+            stick.ready(function () {
+                app.create({
+                    el: document.querySelector('#container'),
+                    template: 'main',
+                    model: {
+                        name: 'Hello'
+                    }
+                });
+            });
+            
+        </script>
+    </head>
+    <body>
+        <div id="container"></div>
+       
+        
+    </body>    
+</html>
