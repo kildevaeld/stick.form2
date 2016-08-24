@@ -31,7 +31,9 @@
     "format": "cjs",
     "registry": "github",
     "dependencies": {
-      "views.form": "github:kildevaeld/views.form@master"
+      "views.form": "github:kildevaeld/views.form@master",
+      "stick": "github:kildevaeld/stickjs@master",
+      "orange": "github:kildevaeld/orange@master"
     }
   }
 }
