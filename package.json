@@ -1,8 +1,8 @@
 {
   "name": "stick.form2",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -25,5 +25,6 @@
   },
   "dependencies": {
     "views.form": "git+https://github.com/kildevaeld/views.form.git"
-  }
+  },
+  "typings": "lib/index"
 }
