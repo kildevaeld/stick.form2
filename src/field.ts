@@ -17,7 +17,7 @@ export abstract class Field extends Base {
             el.setAttribute(a, this.attributes[a]);
         }
 
-        addClass(el, 'form-field');
+        addClass(el, 'field form-field');
 
         this.section.appendChild(el);
 
@@ -32,21 +32,4 @@ export abstract class Field extends Base {
    
     update () {}
     
-    
-    destroy() {
-        /*if (this.editor) {
-            this.editor.off();
-        } else if (this.element) {
-            utils.removeEventListener(this.el, 'change', this._onElementChange);
-        }
-
-        if (this.subview) {
-            this.subview.$destroy();
-        }
-
-        super.destroy();*/
-        super.destroy();
-
-    }
-
 }
