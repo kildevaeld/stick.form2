@@ -102,7 +102,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    function Form() {
 	        _classCallCheck(this, Form);
 
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Form).apply(this, arguments));
+	        return _possibleConstructorReturn(this, (Form.__proto__ || Object.getPrototypeOf(Form)).apply(this, arguments));
 	    }
 
 	    _createClass(Form, [{
@@ -121,18 +121,21 @@ return /******/ (function(modules) { // webpackBootstrap
 	                parent: this.view
 	            });
 	            el.appendChild(this.subview.render());
-	            this.form = new vform.Form({
-	                el: el,
-	                createHelpAreas: true,
-	                validateOnChange: true
-	            });
-	            this.form.render();
-	            this.form.model = new stick_1.Model();
+	            this.el = el;
 	        }
 	    }, {
 	        key: "update",
 	        value: function update() {
 	            this.subview.update();
+	            if (!this.form) {
+	                this.form = new vform.Form({
+	                    el: this.el,
+	                    createHelpAreas: true,
+	                    validateOnChange: true
+	                });
+	                this.form.render();
+	                this.form.model = new stick_1.Model();
+	            }
 	        }
 	    }, {
 	        key: "validate",
@@ -170,7 +173,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    function Base() {
 	        _classCallCheck(this, Base);
 
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Base).apply(this, arguments));
+	        return _possibleConstructorReturn(this, (Base.__proto__ || Object.getPrototypeOf(Base)).apply(this, arguments));
 	    }
 
 	    _createClass(Base, [{
@@ -179,7 +182,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            if (this.subview) {
 	                this.subview.$destroy();
 	            }
-	            _get(Object.getPrototypeOf(Base.prototype), "destroy", this).call(this);
+	            _get(Base.prototype.__proto__ || Object.getPrototypeOf(Base.prototype), "destroy", this).call(this);
 	        }
 	    }]);
 
@@ -241,7 +244,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    _inherits(Field, _base_1$Base);
 
 	    function Field() {
-	        var _Object$getPrototypeO;
+	        var _ref;
 
 	        _classCallCheck(this, Field);
 
@@ -249,7 +252,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            args[_key] = arguments[_key];
 	        }
 
-	        var _this = _possibleConstructorReturn(this, (_Object$getPrototypeO = Object.getPrototypeOf(Field)).call.apply(_Object$getPrototypeO, [this].concat(args)));
+	        var _this = _possibleConstructorReturn(this, (_ref = Field.__proto__ || Object.getPrototypeOf(Field)).call.apply(_ref, [this].concat(args)));
 
 	        _this.nodeName = "DIV";
 	        return _this;
@@ -1802,7 +1805,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    function Editor() {
 	        _classCallCheck(this, Editor);
 
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Editor).apply(this, arguments));
+	        return _possibleConstructorReturn(this, (Editor.__proto__ || Object.getPrototypeOf(Editor)).apply(this, arguments));
 	    }
 
 	    _createClass(Editor, [{

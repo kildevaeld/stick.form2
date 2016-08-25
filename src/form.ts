@@ -7,7 +7,7 @@ import {TemplateView, decorators, Model} from 'stick';
 @decorators.component("form")
 export class Form extends Base {
     form: vform.Form;
-
+    el: HTMLFormElement;
     initialize() {
         let el = this.document.createElement('form');
         for (let a in omit(this.attributes, [])) {
@@ -28,21 +28,27 @@ export class Form extends Base {
 
         el.appendChild(this.subview.render());
 
-        this.form = new vform.Form({
-            el: el,
-            createHelpAreas: true,
-            validateOnChange: true,
-            //model: this.view.context
-        });
-
-        this.form.render();
-
-        this.form.model = new Model();
+        
+        this.el = el;
+        
 
     }
 
     update () {
         this.subview.update();
+
+        if (!this.form) {
+            this.form = new vform.Form({
+                el: this.el,
+                createHelpAreas: true,
+                validateOnChange: true,
+            //model: this.view.context
+            });
+
+            this.form.render();
+
+            this.form.model = new Model();
+        }
     }
 
     validate () {
