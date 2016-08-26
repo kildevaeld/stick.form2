@@ -26,7 +26,7 @@ export class Form extends Base {
             parent: this.view
         });
 
-        el.appendChild(this.subview.render());
+        el.appendChild(this.subview.section.clone().render());
 
         
         this.el = el;

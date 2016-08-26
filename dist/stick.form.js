@@ -120,7 +120,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            this.subview = this.childTemplate.view(this.view.context, {
 	                parent: this.view
 	            });
-	            el.appendChild(this.subview.render());
+	            el.appendChild(this.subview.section.clone().render());
 	            this.el = el;
 	        }
 	    }, {
